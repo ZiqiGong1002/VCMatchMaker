@@ -1,28 +1,22 @@
-Founder-Investor Compatibility Matcher (Jupyter Notebook Version)
 
-##Overview
-This Jupyter Notebook uses Google’s Gemini API to evaluate compatibility between startup founders and potential investors using natural language processing. It computes a score from 0 to 100 for each investor and ranks them based on how well they match a selected founder.
+## How It Works
 
+1. **Data Collection**  
+   - `founders.csv` contains structured data about startup founders.
+   - `investor.json` includes investor information (manually curated or scraped).
+   - `investor_json_to_csv.py` converts the JSON into a usable CSV format.
 
-##Approach
-The notebook follows these key steps:
+2. **Matching & Scoring**  
+   - The notebook `assignment1_ranking.ipynb` uses an LLM to analyze the compatibility between each founder and investor.
+   - Scoring considers various dimensions such as industry fit, stage preference, geographic alignment, and strategic value.
+   - A ranked list of investors is generated for each founder.
 
-Load founder and investor datasets (founders.csv, investors.csv)
+3. **Sample Outputs**  
+   - Outputs may include a CSV or markdown table showing top-N investor matches for each founder with scores and reasoning.
 
-Select a specific founder to match
+## Dependencies
 
-Generate prompt messages and send them to the Gemini API
+To run the project, install the following:
 
-Handle API errors with retry logic
-
-Output ranked match results as a CSV file
-
-
-##Suggested Enhancements
-Batch Matching: Support multiple founders at once for large-scale processing
-
-Rate Limit Handling: Use adaptive delays to avoid hitting API rate limits
-
-Dynamic Thresholds: Allow users to filter results based on minimum score thresholds
-
-Secure API Key Management: Store keys in .env files or environment variables
+```bash
+pip install pandas openai jupyter
